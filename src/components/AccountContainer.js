@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import TransactionsList from './TransactionsList'
 import Search from './Search'
 import {transactions} from '../transactionsData'
+import Transaction from './Transaction';
+// import 
 
 class AccountContainer extends Component {
 
@@ -19,12 +21,17 @@ class AccountContainer extends Component {
   }
 
   render() {
-
+    // console.log(transactions)
+    // console.log(this.props.transactions)
     return (
       <div>
-        <Search />
-        <TransactionsList />
-      </div>
+        <Search chaching={this.props.chaching} />
+        <TransactionsList transactions={ this.props.transactions }/>
+        {/* {this.props.transactions.map(t =>{
+         return <Transaction t={t}/>
+        })} */}
+        
+     </div>
     )
   }
 }
