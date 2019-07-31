@@ -1,14 +1,15 @@
 import React from 'react'
 
-const TransactionsList = () => {
-
+export default class TransactionsList extends React.Component {
+  render(){
+    // console.log(this.props.transactions)
   return (
     <table className="ui celled striped padded table">
       <tbody>
         <tr>
           <th>
             <h3 className="ui center aligned header">
-              Posted At
+              Posted At 
             </h3>
           </th>
           <th>
@@ -27,12 +28,28 @@ const TransactionsList = () => {
             </h3>
           </th>
         </tr>
-
-        {"... your code here..."}
+    
+        {this.props.transactions.map(transaction => {
+          return(
+              <tr>
+                <td>
+                  <p>{transaction.posted_at}</p>
+                </td>
+                <td>
+                  <p>{transaction.description}</p>
+                </td>
+                <td>
+                  <p>{transaction.category}</p>
+                </td>
+                <td>
+                  <p>{transaction.amount}</p>
+                </td>
+              </tr>
+          )
+        })}
 
       </tbody>
     </table>
   )
 }
-
-export default TransactionsList
+}
